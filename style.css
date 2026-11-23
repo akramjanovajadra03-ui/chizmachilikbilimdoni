@@ -1,0 +1,475 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --gold: #ffd21f;
+    --gold-light: #fff3a3;
+    --gold-dark: #b88600;
+    --black: #080808;
+    --panel: #111111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 20%, #332600 0%, transparent 35%),
+        #080808;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .13;
+    background-image:
+        linear-gradient(#ffd21f 1px, transparent 1px),
+        linear-gradient(90deg, #ffd21f 1px, transparent 1px);
+    background-size: 45px 45px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: auto;
+    padding: 28px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #493900;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span,
+h1 span {
+    color: var(--gold);
+}
+
+.header-text {
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    width: min(760px, 92%);
+    margin: 45px auto;
+}
+
+.screen {
+    display: none;
+    animation: appear .5s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#home {
+    text-align: center;
+}
+
+.hero-icon {
+    font-size: 65px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px #ffd21f);
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(30px, 6vw, 48px);
+    line-height: 1.3;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    max-width: 550px;
+    margin: 18px auto 30px;
+    color: #b8b8b8;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.stats,
+.result-stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 38px;
+}
+
+.stats div,
+.result-stats div {
+    background: #111;
+    border: 1px solid #574400;
+    border-radius: 12px;
+    padding: 17px 24px;
+    min-width: 110px;
+}
+
+.stats strong,
+.result-stats strong {
+    display: block;
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 23px;
+}
+
+.stats small,
+.result-stats small {
+    display: block;
+    color: #999;
+    font-size: 10px;
+    margin-top: 7px;
+}
+
+h2 {
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.choose-title {
+    margin-bottom: 18px;
+}
+
+.levels {
+    display: grid;
+    gap: 12px;
+    text-align: left;
+}
+
+.level-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding: 19px 22px;
+    color: white;
+    background: linear-gradient(110deg, #171717, #0d0d0d);
+    border: 1px solid #574400;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.level-card:hover {
+    transform: translateX(7px);
+    border-color: var(--gold);
+    box-shadow: 0 0 20px #ffd21f25;
+}
+
+.level-card > span:first-child {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.level-card div {
+    flex: 1;
+}
+
+.level-card b {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.level-card small {
+    display: block;
+    color: #888;
+    margin-top: 6px;
+    font-size: 11px;
+}
+
+.level-card > span:last-child {
+    color: var(--gold);
+    font-size: 23px;
+}
+
+.author {
+    margin-top: 40px;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.exit-btn {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.progress-track {
+    height: 7px;
+    background: #252525;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 10%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+    transition: width .3s;
+}
+
+.timer-box {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.timer-box span {
+    display: block;
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.timer-box strong {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 35px;
+    color: var(--gold);
+    margin-top: 5px;
+}
+
+.question-card {
+    background: linear-gradient(145deg, #181818, #0d0d0d);
+    border: 1px solid #554300;
+    border-radius: 17px;
+    padding: 28px;
+}
+
+.question-number {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.question-card h2 {
+    font-size: 19px;
+    line-height: 1.7;
+    letter-spacing: 0;
+    margin-bottom: 23px;
+}
+
+.options {
+    display: grid;
+    gap: 11px;
+}
+
+.option {
+    padding: 15px;
+    background: #202020;
+    border: 1px solid #383838;
+    color: white;
+    border-radius: 9px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.option:hover:not(:disabled) {
+    border-color: var(--gold);
+    background: #302600;
+}
+
+.option.correct {
+    border-color: #31d889;
+    background: #103524;
+}
+
+.option.wrong {
+    border-color: #ff5a5a;
+    background: #381616;
+}
+
+.option:disabled {
+    cursor: default;
+}
+
+.feedback {
+    min-height: 35px;
+    padding-top: 15px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--gold-light);
+}
+
+.main-btn,
+.secondary-btn {
+    width: 100%;
+    padding: 17px;
+    border-radius: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: .2s;
+}
+
+.main-btn {
+    background: linear-gradient(110deg, #b88600, #ffd21f, #fff3a3);
+    color: #080808;
+    border: none;
+}
+
+.main-btn:hover:not(:disabled) {
+    box-shadow: 0 0 25px #ffd21f66;
+    transform: translateY(-2px);
+}
+
+.main-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--gold-dark);
+    color: var(--gold);
+}
+
+#result {
+    text-align: center;
+}
+
+.score-circle {
+    width: 160px;
+    height: 160px;
+    border: 5px solid var(--gold);
+    box-shadow: 0 0 30px #ffd21f35;
+    border-radius: 50%;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-circle strong {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gold);
+    font-size: 52px;
+}
+
+.score-circle span {
+    color: #999;
+    font-size: 15px;
+}
+
+#resultTitle {
+    color: var(--gold);
+}
+
+#resultMessage {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.review-title {
+    margin: 35px 0 15px;
+}
+
+.review-item {
+    text-align: left;
+    padding: 17px;
+    margin-bottom: 10px;
+    background: #141414;
+    border: 1px solid #393000;
+    border-radius: 10px;
+}
+
+.review-item h3 {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.review-item p {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 5px;
+}
+
+.review-item .good {
+    color: #31d889;
+}
+
+.review-item .bad {
+    color: #ff7777;
+}
+
+.review-item .explanation {
+    color: var(--gold-light);
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #686868;
+    font-size: 10px;
+    letter-spacing: 3px;
+    padding: 25px;
+}
+
+@media (max-width: 500px) {
+    header { padding: 20px 12px; }
+    .logo { font-size: 17px; }
+    .header-text { font-size: 8px; }
+    main { margin: 30px auto; }
+    .stats { gap: 7px; }
+    .stats div { min-width: 0; flex: 1; padding: 14px 8px; }
+    .question-card { padding: 19px; }
+    .question-card h2 { font-size: 16px; }
+    .result-stats { gap: 7px; }
+    .result-stats div { min-width: 0; flex: 1; padding: 13px 7px; }
+}
